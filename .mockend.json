@@ -1,0 +1,18 @@
+{
+  "User": {
+    "firstName": { "regexp": "[A-Z][a-z]{5,10}" },
+    "lastName": { "regexp": "[A-Z][a-z]{5,10}" },
+    "email": { "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}" },
+    "password": { "loremWords": { "minLength": 6, "maxLength": 14 } },
+    "avatar": {
+      "regexp": "https://i\\.pravatar\\.cc/150\\?u=[0-9]{5}"
+    },
+    "bio": { "loremSentences": { "minLength": 1, "maxLength": 140 } },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    }
+  }
+}

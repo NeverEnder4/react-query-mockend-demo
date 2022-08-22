@@ -1,15 +1,18 @@
 {
-  "User": {
-    "firstName": { "string": {} },
-    "lastName": { "string": {} },
-    "email": { "string": {} },
-    "password": { "string": {} },
-    "avatar": {
-      "string": {}
+  "User": [
+    {
+      "firstName": "Tony",
+      "lastName": "Pettigrew",
+      "email": "test@aol.com",
+      "password": "password",
+      "avatar": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/004693d897b327080e8ceca6499c8cb5525ba2b8.jpg"
     },
-    "bio": { "string": {} },
-    "createdAt": {
-      "string": {}
+    {
+      "firstName": "Kat",
+      "lastName": "Roberts",
+      "email": "katalina@aol.com",
+      "password": "password",
+      "avatar": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/9a/9a576de0e20b166e6e230df719d25d651fe043fb.jpg"
     }
-  }
+  ]
 }

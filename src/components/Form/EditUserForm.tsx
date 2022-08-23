@@ -1,31 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { createUser, User, PostUser } from "../api";
+import { User, updateUser } from "../../api";
+import { useUser } from "../../hooks/useUser";
+import { INITIAL_USER_VALUE } from "../../stores/atoms/user";
 
-interface FormState {
-  firstName: string;
-  lastName: string;
-  email: string;
-  avatar: string;
-}
-
-const INITIAL_FORM_STATE: FormState = {
+const INITIAL_FORM_STATE: User = {
   firstName: "",
   lastName: "",
   email: "",
   avatar: "",
+  id: 0,
 };
 
-export const UserForm = () => {
+export const EditUserForm = () => {
   const queryClient = useQueryClient();
-  const [formState, setFormState] = useState<FormState>(INITIAL_FORM_STATE);
-  const mutation = useMutation((user: PostUser) => createUser(user), {
-    onSuccess: () => {
-      // ✅ refetch the comments list for our blog post
-      queryClient.invalidateQueries(["users"]);
-      setFormState(INITIAL_FORM_STATE);
-    },
+  const { user, setUser } = useUser();
+
+  const [formState, setFormState] = useState<User>(user);
+
+  useEffect(() => {
+    setFormState(user);
+  }, [user]);
+
+  const onSuccess = () => {
+    // ✅ refetch the users
+    queryClient.invalidateQueries(["users"]);
+    setFormState(INITIAL_FORM_STATE);
+    setUser(INITIAL_USER_VALUE);
+  };
+
+  const mutation = useMutation((user: User) => updateUser(user), {
+    onSuccess,
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
@@ -36,9 +42,10 @@ export const UserForm = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
+
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: 60 }}>
-      <h2 style={{ textAlign: "left" }}>Add A User</h2>
+      <h2 style={{ textAlign: "left" }}>Update User</h2>
       <div style={{ display: "grid", gap: 16, gridTemplateColumns: "auto auto", marginTop: 16 }}>
         <label
           style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4 }}
@@ -95,7 +102,7 @@ export const UserForm = () => {
           style={{ backgroundColor: "green", marginTop: 32, gridColumn: "1/span 2" }}
           type='submit'
         >
-          Add User
+          Update User
         </button>
       </div>
     </form>

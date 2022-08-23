@@ -1,10 +1,10 @@
 import React from "react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { UserItem } from "./UserItem";
 import { getUsers } from "../api";
 
-export const Users = (): React.ReactElement => {
+export const UserList = (): React.ReactElement => {
   const query = useQuery(["users"], getUsers);
 
   const users = query?.data?.map((data) => <UserItem user={data} />);

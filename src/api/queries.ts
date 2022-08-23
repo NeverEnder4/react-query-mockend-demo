@@ -22,3 +22,12 @@ export const getUsers = (): Promise<User[]> => {
 export const createUser = (user: PostUser): Promise<User> => {
   return api.post(BASE_URL + ENDPOINTS.users, JSON.stringify(user));
 };
+
+export const updateUser = (user: User): Promise<User> => {
+  const { id, ...data } = user;
+  return api.put(`${BASE_URL + ENDPOINTS.users}/${id}`, JSON.stringify(data));
+};
+
+export const deleteUser = (id: number): Promise<User[]> => {
+  return api.delete<User[]>(`${BASE_URL + ENDPOINTS.users}/${id}`);
+};

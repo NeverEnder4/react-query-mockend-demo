@@ -12,4 +12,13 @@ export const api = {
       },
       body,
     }),
+  put: <TBody extends BodyInit, TResponse>(url: string, body: TBody) =>
+    request<TResponse>(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    }),
+  delete: <TResponse>(url: string) => request<TResponse>(url, { method: "DELETE" }),
 };

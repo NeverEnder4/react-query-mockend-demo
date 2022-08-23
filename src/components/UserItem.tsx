@@ -8,7 +8,7 @@ interface Props {
 
 export const UserItem = ({ user }: Props): React.ReactElement => {
   console.log(user);
-  const { firstName, lastName, email, createdAt, avatar, bio } = user;
+  const { firstName, lastName, email, avatar } = user;
   const name = `${firstName} ${lastName}`;
 
   return (
@@ -19,6 +19,7 @@ export const UserItem = ({ user }: Props): React.ReactElement => {
         borderRadius: 8,
         border: "1px solid white",
         padding: 8,
+        width: 300,
       }}
     >
       <img style={{ width: 50, height: 50, marginRight: 16 }} alt={name} src={avatar} />

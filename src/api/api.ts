@@ -5,5 +5,11 @@ export const api = {
 
   // Using `extends` to set a type constraint:
   post: <TBody extends BodyInit, TResponse>(url: string, body: TBody) =>
-    request<TResponse>(url, { method: "POST", body }),
+    request<TResponse>(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    }),
 };

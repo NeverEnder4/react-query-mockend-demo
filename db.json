@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Tony",
+      "lastName": "Pettigrew",
+      "email": "tony@aol.com",
+      "avatar": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/9a/9a576de0e20b166e6e230df719d25d651fe043fb_full.jpg"
+    },
+    {
+      "id": 2,
+      "firstName": "Kat",
+      "lastName": "Roberts",
+      "email": "katalina@aol.com",
+      "avatar": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/ba/ba798d679da8380af96efb61003a5a0bd3578968_full.jpg"
+    },
+    {
+      "id": 3,
+      "firstName": "Tycho",
+      "lastName": "Pettigrew-Roberts",
+      "email": "needfoodmeow@aol.com",
+      "avatar": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e2/e239e1854bd2ae9726e3b8d2912a53fb80ad3f06_full.jpg"
+    },
+    {
+      "firstName": "test",
+      "lastName": "tester",
+      "email": "test@aol.com",
+      "avatar": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/43/43c42afe7ae9f081aa27e66e185e8f83c4a9a7ca_full.jpg",
+      "id": 4
+    }
+  ]
+}
